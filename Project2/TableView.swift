@@ -62,7 +62,19 @@ class TableView: UITableViewController {
          performSegue(withIdentifier: "ShowDetails", sender: self)
 
         }
-      
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowDetails"{
+          let details = segue.destination as! Details
+            details.NameD = name
+            details.EmailD = email
+            details.PhonenumberD = phone
+            details.FromD = from
+            details.ToD = to
+            details.DateD = date
+            details.TimeD = time
+        }
+        
+    }
   
         /*
         // Override to support conditional editing of the table view.
