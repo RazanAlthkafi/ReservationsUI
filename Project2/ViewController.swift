@@ -24,12 +24,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var FromText: UITextField!
     @IBOutlet weak var ToText: UITextField!
    
+    @IBOutlet weak var viewR: UIView!
     
     @IBOutlet weak var DateAndTime: UIDatePicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        viewR.layer.cornerRadius = 30
     }
 
     @IBAction func NewReservation(_ sender: Any)

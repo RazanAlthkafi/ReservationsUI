@@ -19,7 +19,10 @@ class TableView: UITableViewController {
     var to: String = ""
    var dateandtime = Date()
     override func viewWillAppear(_ animated: Bool) {
-        self.tableView.reloadData()
+        super.viewWillAppear(animated)
+               
+
+               tableView.reloadData()
     }
         override func viewDidLoad() {
             super.viewDidLoad()
@@ -63,10 +66,37 @@ class TableView: UITableViewController {
             print(NewReserve[indexPath.row].Name)
             
             performSegue(withIdentifier: "goBackToDetails", sender: self)
+            self.tableView.reloadData()
         }
+    
+    
+    
+//    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+//        return .delete
+//    }
+//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete{
+//            tableView.beginUpdates()
+//        }
+//    }
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = UIContextualAction (style: .destructive, title: "delete") { (action, view, completionHandler) in
+            self.NewReserve.remove(at: indexPath.row)
+            tableView.beginUpdates()
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.endUpdates()
+            
+            completionHandler(true)
+        }
+        return UISwipeActionsConfiguration(actions: [delete])
+    }
+    
+    
+    
             override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
                 if segue.identifier == "goBackToDetails"{
                     let edit = segue.destination as! Edit
+                 //   edit.NewReserveE = NewReserve
                     edit.NameE = name
                     edit.EmailE = email
                     edit.PhonenumberE = phone

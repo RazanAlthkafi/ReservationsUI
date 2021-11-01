@@ -25,7 +25,10 @@ var NewReserveE = [Reservation]()
     
 //    override func viewWillDisappear(_ animated: Bool) {
 //        NameLabel.text = NameE
-//    }
+//        EmaiLabel.text = EmailE
+//        PhoneLabel.text = PhonenumberE
+//        FromLabel.text = FromE
+//        ToLabel.text = ToE    }
     override func viewDidLoad() {
         super.viewDidLoad()
         NameLabel.text = NameE
@@ -42,15 +45,17 @@ var NewReserveE = [Reservation]()
 //              ))
                 
      //   selectedAccount.Name = NameLabel.text!
-      // NameLabel.text = NameE
-        
-        for i in 0..<NewReserveE.count  {
-                   NewReserveE[i].Name = NameE
-                      NewReserveE[i].Email = EmailE
-            
-            print(NameE)
-           
-        }
+        NameE = NameLabel.text!
+        print(NameE,EmailE,PhonenumberE)
+        navigationController?.popViewController(animated: true)
+//        for i in 0..<NewReserveE.count  {
+//                   NewReserveE[i].Name = NameE
+//                      NewReserveE[i].Email = EmailE
+//
+        let delegateA = UIApplication.shared.delegate as! AppDelegate
+    //    let context = delegateA.obje
+//
+//        }
       //  performSegue(withIdentifier: "GoBackToTable", sender: self)
     
     }
@@ -60,8 +65,12 @@ var NewReserveE = [Reservation]()
     // In a storyboard-based application, you will often want to do a little preparation before navigation
 override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "GoBackToTable"{
-        let edit = segue.destination as! TableView
-        edit.name = NameE
+        let table = segue.destination as! TableView
+        table.name = NameE
+        
+        
+       // table.NewReserve = NewReserveE
+        
     }
     // navigationController?.popViewController(animated: true)
 }
