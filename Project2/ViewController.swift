@@ -12,8 +12,8 @@ struct Reservation {
     var PhoneNumber: String
     var From: String
     var To: String
-    var Date: String
-    var Time: String
+    var DateAndTime1 = Date()
+   
 }
 class ViewController: UIViewController {
 
@@ -23,8 +23,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var PhoneText: UITextField!
     @IBOutlet weak var FromText: UITextField!
     @IBOutlet weak var ToText: UITextField!
-    @IBOutlet weak var DateText: UITextField!
-    @IBOutlet weak var TimeText: UITextField!
+   
+    
+    @IBOutlet weak var DateAndTime: UIDatePicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +35,9 @@ class ViewController: UIViewController {
     @IBAction func NewReservation(_ sender: Any)
     {
         NewReservation.append(Reservation(
-            Name: NameText.text!, Email: EmailText.text!, PhoneNumber: PhoneText.text!, From: FromText.text!, To: ToText.text!, Date: DateText.text!, Time: TimeText.text!
+            Name: NameText.text!, Email: EmailText.text!, PhoneNumber: PhoneText.text!, From: FromText.text!, To: ToText.text!,
+            DateAndTime1: DateAndTime.date
+            
         ))
         print(NewReservation)
     }

@@ -16,6 +16,7 @@
 		C31EA75F272D7446000ACB1F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C31EA75D272D7445000ACB1F /* LaunchScreen.storyboard */; };
 		C328B25D272EB6EC00FB4772 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C328B25C272EB6EC00FB4772 /* TableView.swift */; };
 		C328B25F272EBF2A00FB4772 /* Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = C328B25E272EBF2A00FB4772 /* Details.swift */; };
+		C328B261272FD10300FB4772 /* Edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C328B260272FD10300FB4772 /* Edit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		C31EA760272D7446000ACB1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C328B25C272EB6EC00FB4772 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		C328B25E272EBF2A00FB4772 /* Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Details.swift; sourceTree = "<group>"; };
+		C328B260272FD10300FB4772 /* Edit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Edit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				C31EA758272D7442000ACB1F /* Project2.xcdatamodeld */,
 				C328B25C272EB6EC00FB4772 /* TableView.swift */,
 				C328B25E272EBF2A00FB4772 /* Details.swift */,
+				C328B260272FD10300FB4772 /* Edit.swift */,
 			);
 			path = Project2;
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 				C328B25D272EB6EC00FB4772 /* TableView.swift in Sources */,
 				C328B25F272EBF2A00FB4772 /* Details.swift in Sources */,
 				C31EA750272D7442000ACB1F /* AppDelegate.swift in Sources */,
+				C328B261272FD10300FB4772 /* Edit.swift in Sources */,
 				C31EA75A272D7442000ACB1F /* Project2.xcdatamodeld in Sources */,
 				C31EA752272D7442000ACB1F /* SceneDelegate.swift in Sources */,
 			);

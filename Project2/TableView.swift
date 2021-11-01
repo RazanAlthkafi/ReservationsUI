@@ -6,17 +6,20 @@
 //
 
 import UIKit
+import CloudKit
 
 class TableView: UITableViewController {
-    var NewReserve = [Reservation]()
+    var selectedItem: Reservation!
+//var selectedAccount : Reservation!
     var name: String = ""
     var email: String = ""
     var phone: String = ""
     var from: String = ""
     var to: String = ""
-    var date: String = ""
-    var time: String = ""
-
+   var dateandtime = Date()
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
         override func viewDidLoad() {
             super.viewDidLoad()
 
@@ -36,7 +39,7 @@ class TableView: UITableViewController {
 
         override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             // #warning Incomplete implementation, return the number of rows
-            return NewReserve.count
+            return 20
         }
 
         
@@ -48,41 +51,51 @@ class TableView: UITableViewController {
             return cell
         }
         override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            let   NewReserve = selectedItem[indexPath.row]
             name = NewReserve[indexPath.row].Name
             email = NewReserve[indexPath.row].Email
             phone =  NewReserve[indexPath.row].PhoneNumber
             from = NewReserve[indexPath.row].From
             to = NewReserve[indexPath.row].To
-            date = NewReserve[indexPath.row].Date
-            time = NewReserve[indexPath.row].Time
+            dateandtime = NewReserve[indexPath.row].DateAndTime1
             
             print(NewReserve[indexPath.row].Name)
 
             
          performSegue(withIdentifier: "ShowDetails", sender: self)
+            
 
         }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowDetails"{
           let details = segue.destination as! Details
-            details.NameD = name
-            details.EmailD = email
-            details.PhonenumberD = phone
-            details.FromD = from
-            details.ToD = to
-            details.DateD = date
-            details.TimeD = time
+            details.account = selectedItem
+            
+            
+            
+           
+           
         }
         
     }
   
-        /*
+   
+    
+  
+        
         // Override to support conditional editing of the table view.
-        override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-            // Return false if you do not want the specified item to be editable.
-            return true
-        }
-        */
+    
+//    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+//      //  let Reservations = NewReserve[indexPath.row]
+//        let edit = UITableViewRowAction(style: .default, title: "edit") { (Action, indexPath)  in
+//
+//        }
+//
+//        edit.backgroundColor = .blue
+//        return [edit]
+//    }
+   
+    
 
         /*
         // Override to support editing the table view.
@@ -122,4 +135,6 @@ class TableView: UITableViewController {
         */
 
     }
+
+
 

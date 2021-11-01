@@ -8,13 +8,14 @@
 import UIKit
 
 class Details: UIViewController {
+    var account : Reservation!
+    
     var NameD: String = ""
     var EmailD: String = ""
     var PhonenumberD: String = ""
     var FromD: String = ""
     var ToD: String = ""
-    var DateD: String = ""
-    var TimeD: String = ""
+   
     
     @IBOutlet weak var FromLabel: UILabel!
     @IBOutlet weak var ToLabel: UILabel!
@@ -22,31 +23,41 @@ class Details: UIViewController {
     @IBOutlet weak var EmailLabel: UILabel!
     @IBOutlet weak var PhoneLabel: UILabel!
     @IBOutlet weak var DateLabel: UILabel!
-    
     @IBOutlet weak var TimeLabel: UILabel!
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        NameLabel.text = account.Name
+        FromLabel.text = account.From
+        ToLabel.text = account.To
+        EmailLabel.text = account.Email
+        PhoneLabel.text = account.PhoneNumber
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        NameLabel.text = NameD
-        FromLabel.text = FromD
-        ToLabel.text = ToD
-        EmailLabel.text = EmailD
-        PhoneLabel.text = PhonenumberD
-        DateLabel.text = DateD
-        TimeLabel.text = TimeD
+        NameLabel.text = account.Name
+        FromLabel.text = account.From
+        ToLabel.text = account.To
+        EmailLabel.text = account.Email
+        PhoneLabel.text = account.PhoneNumber
        
     }
     
-
-    /*
+    @IBAction func Confirm(_ sender: Any) {
+        
+    }
+    
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "DetailsEdit"{
+          let edit = segue.destination as! Edit
+            edit.selectedAccount = account
+           
+        }
+        
     }
-    */
+    
 
 }
