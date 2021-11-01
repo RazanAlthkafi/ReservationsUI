@@ -8,8 +8,8 @@
 import UIKit
 
 class Details: UIViewController {
-    var account : Reservation!
-    
+   // var account : Reservation!
+    var NewRewservations = [Reservation]()
     var NameD: String = ""
     var EmailD: String = ""
     var PhonenumberD: String = ""
@@ -25,21 +25,26 @@ class Details: UIViewController {
     @IBOutlet weak var DateLabel: UILabel!
     @IBOutlet weak var TimeLabel: UILabel!
     
-    override func viewWillAppear(_ animated: Bool) {
-        NameLabel.text = account.Name
-        FromLabel.text = account.From
-        ToLabel.text = account.To
-        EmailLabel.text = account.Email
-        PhoneLabel.text = account.PhoneNumber
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+////        NameLabel.text = account.Name
+////        FromLabel.text = account.From
+////        ToLabel.text = account.To
+////        EmailLabel.text = account.Email
+////        PhoneLabel.text = account.PhoneNumber
+//
+//    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        NameLabel.text = account.Name
-        FromLabel.text = account.From
-        ToLabel.text = account.To
-        EmailLabel.text = account.Email
-        PhoneLabel.text = account.PhoneNumber
-       
+//        NameLabel.text = account.Name
+//        FromLabel.text = account.From
+//        ToLabel.text = account.To
+//        EmailLabel.text = account.Email
+//        PhoneLabel.text = account.PhoneNumber
+        NameLabel.text = NameD
+        FromLabel.text = FromD
+        ToLabel.text = ToD
+        EmailLabel.text = EmailD
+        PhoneLabel.text = PhonenumberD
     }
     
     @IBAction func Confirm(_ sender: Any) {
@@ -53,7 +58,7 @@ class Details: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "DetailsEdit"{
           let edit = segue.destination as! Edit
-            edit.selectedAccount = account
+            edit.NewReserveE = NewRewservations
            
         }
         

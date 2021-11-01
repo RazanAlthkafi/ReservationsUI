@@ -40,6 +40,7 @@ class ViewController: UIViewController {
             
         ))
         print(NewReservation)
+      
     }
    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -47,6 +48,7 @@ class ViewController: UIViewController {
         let table1 = segue.destination as! TableView
         table1.NewReserve = NewReservation
         
+      
         
     }
     

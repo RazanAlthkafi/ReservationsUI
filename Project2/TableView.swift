@@ -9,7 +9,8 @@ import UIKit
 import CloudKit
 
 class TableView: UITableViewController {
-    var selectedItem: Reservation!
+    var NewReserve = [Reservation]()
+   // var selectedItem: Reservation!
 //var selectedAccount : Reservation!
     var name: String = ""
     var email: String = ""
@@ -18,7 +19,7 @@ class TableView: UITableViewController {
     var to: String = ""
    var dateandtime = Date()
     override func viewWillAppear(_ animated: Bool) {
-        tableView.reloadData()
+        self.tableView.reloadData()
     }
         override func viewDidLoad() {
             super.viewDidLoad()
@@ -39,7 +40,7 @@ class TableView: UITableViewController {
 
         override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             // #warning Incomplete implementation, return the number of rows
-            return 20
+            return NewReserve.count
         }
 
         
@@ -51,7 +52,7 @@ class TableView: UITableViewController {
             return cell
         }
         override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            let   NewReserve = selectedItem[indexPath.row]
+          //  let   NewReserve = selectedItem[indexPath.row]
             name = NewReserve[indexPath.row].Name
             email = NewReserve[indexPath.row].Email
             phone =  NewReserve[indexPath.row].PhoneNumber
@@ -60,24 +61,31 @@ class TableView: UITableViewController {
             dateandtime = NewReserve[indexPath.row].DateAndTime1
             
             print(NewReserve[indexPath.row].Name)
-
             
-         performSegue(withIdentifier: "ShowDetails", sender: self)
-            
-
+            performSegue(withIdentifier: "goBackToDetails", sender: self)
         }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ShowDetails"{
-          let details = segue.destination as! Details
-            details.account = selectedItem
+            override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+                if segue.identifier == "goBackToDetails"{
+                    let edit = segue.destination as! Edit
+                    edit.NameE = name
+                    edit.EmailE = email
+                    edit.PhonenumberE = phone
+                    edit.FromE = from
+                    edit.ToE = to
+                }
+                
+            }
             
             
-            
-           
-           
-        }
-        
     }
+            
+    
+    
+
+        
+ 
+        
+    
   
    
     
@@ -94,6 +102,8 @@ class TableView: UITableViewController {
 //        edit.backgroundColor = .blue
 //        return [edit]
 //    }
+
+
    
     
 
@@ -124,17 +134,12 @@ class TableView: UITableViewController {
         }
         */
 
-        /*
+        
         // MARK: - Navigation
 
         // In a storyboard-based application, you will often want to do a little preparation before navigation
-        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            // Get the new view controller using segue.destination.
-            // Pass the selected object to the new view controller.
-        }
-        */
+        
 
-    }
 
 
 
