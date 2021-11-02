@@ -28,11 +28,6 @@ class Details: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        NameLabel.text = account.Name
-//        FromLabel.text = account.From
-//        ToLabel.text = account.To
-//        EmailLabel.text = account.Email
-//        PhoneLabel.text = account.PhoneNumber
         NameLabel.text = NameD
         FromLabel.text = FromD
         ToLabel.text = ToD
@@ -40,15 +35,6 @@ class Details: UIViewController {
         PhoneLabel.text = PhonenumberD
         DateAndTime.date = date
     }
-    
-    @IBAction func Confirm(_ sender: Any) {
-        
-    }
-    
-    
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
 
         
     }

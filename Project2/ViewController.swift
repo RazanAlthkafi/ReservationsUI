@@ -29,10 +29,23 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewR.layer.cornerRadius = 30
+        
+        let NameU = UserDefaults.standard.string(forKey: "name")
+        NameText.text = NameU
+        let Email = UserDefaults.standard.string(forKey: "email")
+        EmailText.text = Email
+        let PhoneNumber = UserDefaults.standard.string(forKey: "phone")
+        PhoneText.text = PhoneNumber
+        let From = UserDefaults.standard.string(forKey: "from")
+        FromText.text = From
+        let To = UserDefaults.standard.string(forKey: "to")
+        ToText.text = To
     }
 
     @IBAction func NewReservation(_ sender: Any)
     {
+//        print(DateAndTime.date)
+        
         NewReservation.append(Reservation(
             Name: NameText.text!, Email: EmailText.text!, PhoneNumber: PhoneText.text!, From:
                 FromText.text!, To: ToText.text!,
@@ -40,6 +53,12 @@ class ViewController: UIViewController {
             DateAndTime1: DateAndTime.date
             
         ))
+       UserDefaults.standard.set(NameText.text ,forKey: "name")
+         UserDefaults.standard.set(EmailText.text, forKey: "email")
+        UserDefaults.standard.set(PhoneText.text,forKey: "phone")
+    UserDefaults.standard.set(FromText.text, forKey: "from")
+    UserDefaults.standard.set(ToText.text,forKey: "to")
+        
         print(NewReservation)
       
     }

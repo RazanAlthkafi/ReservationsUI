@@ -16,25 +16,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flight1" translatesAutoresizingMaskIntoConstraints="NO" id="nMU-Xx-sq4">
-                                <rect key="frame" x="20" y="165" width="374" height="577"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9rg-8c-KkZ">
-                                <rect key="frame" x="20" y="721" width="374" height="31"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9rg-8c-KkZ">
+                                <rect key="frame" x="20" y="750" width="374" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="New Register">
-                                    <color key="baseBackgroundColor" red="0.05686710423" green="0.2215906517" blue="0.098047991089999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="baseBackgroundColor" red="0.0085080910450000009" green="0.085997326659999998" blue="0.52320641590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="show" id="gHf-wT-7Mr"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are You Admin ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9xs-uM-46F">
-                                <rect key="frame" x="20" y="762" width="124" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Saudi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjB-Fn-k4Y">
                                 <rect key="frame" x="146" y="81" width="109" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -49,30 +41,22 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OgU-xa-Nr0">
-                                <rect key="frame" x="156" y="757" width="89" height="31"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OgU-xa-Nr0">
+                                <rect key="frame" x="156" y="774" width="24" height="14"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Click here">
+                                <buttonConfiguration key="configuration" style="plain" title="">
                                     <color key="baseForegroundColor" red="0.49438594540000003" green="0.064830312449999997" blue="0.016318159549999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sky" translatesAutoresizingMaskIntoConstraints="NO" id="nMU-Xx-sq4">
+                                <rect key="frame" x="0.0" y="-705" width="414" height="2147"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ySA-o8-pBA"/>
-                        <color key="backgroundColor" red="0.43541208813109361" green="0.63529411764705879" blue="0.46678483202777782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.81809203679999998" green="0.88254288270000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ySA-o8-pBA" firstAttribute="bottom" secondItem="nMU-Xx-sq4" secondAttribute="bottom" constant="71" id="0UO-Br-Qy7"/>
-                            <constraint firstItem="nMU-Xx-sq4" firstAttribute="leading" secondItem="ySA-o8-pBA" secondAttribute="leading" constant="20" id="3fR-UH-bgF"/>
-                            <constraint firstItem="ySA-o8-pBA" firstAttribute="trailing" secondItem="nMU-Xx-sq4" secondAttribute="trailing" constant="20" id="6H0-tN-x0f"/>
-                            <constraint firstItem="nMU-Xx-sq4" firstAttribute="top" secondItem="ySA-o8-pBA" secondAttribute="top" constant="77" id="Crj-hQ-R8g"/>
-                            <constraint firstItem="9xs-uM-46F" firstAttribute="leading" secondItem="ySA-o8-pBA" secondAttribute="leading" constant="20" id="G5T-nP-uu6"/>
-                            <constraint firstItem="9rg-8c-KkZ" firstAttribute="top" secondItem="nMU-Xx-sq4" secondAttribute="bottom" constant="-21" id="Sbv-TU-BUC"/>
-                            <constraint firstItem="ySA-o8-pBA" firstAttribute="trailing" secondItem="9rg-8c-KkZ" secondAttribute="trailing" constant="20" id="VBR-4D-4K3"/>
-                            <constraint firstItem="OgU-xa-Nr0" firstAttribute="top" secondItem="9xs-uM-46F" secondAttribute="top" constant="-5" id="a42-Hi-H9s"/>
-                            <constraint firstItem="9xs-uM-46F" firstAttribute="top" secondItem="9rg-8c-KkZ" secondAttribute="bottom" constant="10" id="aHW-FX-90u"/>
-                            <constraint firstItem="9rg-8c-KkZ" firstAttribute="leading" secondItem="ySA-o8-pBA" secondAttribute="leading" constant="20" id="hFH-0h-H2R"/>
                             <constraint firstItem="ySA-o8-pBA" firstAttribute="bottom" secondItem="OgU-xa-Nr0" secondAttribute="bottom" constant="25" id="jNp-0E-fsE"/>
-                            <constraint firstItem="OgU-xa-Nr0" firstAttribute="top" secondItem="9rg-8c-KkZ" secondAttribute="bottom" constant="5" id="sWV-5g-RlU"/>
-                            <constraint firstItem="OgU-xa-Nr0" firstAttribute="leading" secondItem="9xs-uM-46F" secondAttribute="trailing" constant="12" id="xY5-lS-hzi"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="i3Q-x3-j5j"/>
@@ -87,7 +71,7 @@
             <objects>
                 <viewController id="eXd-CB-fcG" customClass="Edit" customModule="Project2" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rnp-JN-wlD">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XW6-jV-oeI">
@@ -153,10 +137,11 @@
                             </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NCz-Tv-7Wf"/>
-                        <color key="backgroundColor" red="0.43541208809999998" green="0.63529411759999999" blue="0.46678483199999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.81809203679999998" green="0.88254288270000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="Ghy-lr-lGw"/>
                     <connections>
+                        <outlet property="DatePik" destination="X4B-8T-cqK" id="7ez-Lc-gRs"/>
                         <outlet property="EmaiLabel" destination="XW6-jV-oeI" id="Htg-X1-tZm"/>
                         <outlet property="FromLabel" destination="ogm-D0-APS" id="mRO-Vd-Fx9"/>
                         <outlet property="NameLabel" destination="gZ1-gd-qZy" id="xKe-xN-glC"/>
@@ -229,7 +214,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Done">
-                                            <color key="baseBackgroundColor" red="0.05686710423" green="0.2215906517" blue="0.098047991089999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="baseBackgroundColor" red="0.0085080910450000009" green="0.085997326659999998" blue="0.52320641590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="NewReservation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="37d-Vb-Vyo"/>
@@ -237,7 +222,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.43541208809999998" green="0.63529411759999999" blue="0.46678483199999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.81809203679999998" green="0.88254288270000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Register" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qvw-Ec-KpA">
                                 <rect key="frame" x="158" y="129" width="98" height="30"/>
@@ -248,7 +233,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.43541208809999998" green="0.63529411759999999" blue="0.46678483199999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.81809203679999998" green="0.88254288270000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="12O-8G-Q8a"/>
                     <navigationItem key="navigationItem" id="IK2-GU-LDt"/>
@@ -271,13 +256,13 @@
             <objects>
                 <viewController id="sw2-BE-JGR" customClass="Details" customModule="Project2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PvW-FU-iYk">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Details Of Your Reservation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pj4-4Y-HXW">
                                 <rect key="frame" x="0.0" y="152" width="414" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.076383564180000002" green="0.2976392766" blue="0.1316974923" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0085080910450000009" green="0.085997326659999998" blue="0.52320641590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -372,7 +357,7 @@
                             </datePicker>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fGi-lf-Yvh"/>
-                        <color key="backgroundColor" red="0.43541208809999998" green="0.63529411759999999" blue="0.46678483199999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.81809203679999998" green="0.88254288270000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="tVF-LN-TQT"/>
                     <connections>
@@ -393,7 +378,7 @@
             <objects>
                 <tableViewController id="DK8-BE-RCm" customClass="TableView" customModule="Project2" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="7a8-Ks-LiK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
@@ -403,7 +388,7 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ndn-vt-27B" id="VDN-He-bIq">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" red="0.076383564178222924" green="0.29763927656350675" blue="0.13169749227454386" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" red="0.81809203679999998" green="0.88254288270000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -462,10 +447,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="gm9-eR-E3h"/>
+        <segue reference="AlL-CW-NRW"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="flight1" width="750" height="1000"/>
+        <image name="sky" width="640" height="1137"/>
         <systemColor name="secondarySystemGroupedBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

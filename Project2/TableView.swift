@@ -6,13 +6,14 @@ import CloudKit
 class TableView: UITableViewController, PassDataBack {
     var selectedData : Reservation!
     var selectedRowNum: Int = 0
-    func updateRow(updateName: String, updateEmail: String, updatePhone: String, updateFrom: String, updateTo: String) {
+    func updateRow(updateName: String, updateEmail: String, updatePhone: String, updateFrom: String, updateTo: String, updateDate: Date) {
         
         NewReserve[selectedRowNum].Name = updateName
         NewReserve[selectedRowNum].Email = updateEmail
         NewReserve[selectedRowNum].PhoneNumber = updatePhone
         NewReserve[selectedRowNum].From = updateFrom
         NewReserve[selectedRowNum].To = updateTo
+        NewReserve[selectedRowNum].DateAndTime1 = updateDate
         tableView.reloadData()
     }
 //        for i in 0..<NewReserve.count{
@@ -31,7 +32,7 @@ class TableView: UITableViewController, PassDataBack {
     var phone: String = ""
     var from: String = ""
     var to: String = ""
-   // var datetime = Date()
+    var datetime = Date()
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -47,6 +48,8 @@ class TableView: UITableViewController, PassDataBack {
 
             // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
             // self.navigationItem.rightBarButtonItem = self.editButtonItem
+            
+            print(NewReserve)
         }
 
         // MARK: - Table view data source
@@ -77,7 +80,7 @@ class TableView: UITableViewController, PassDataBack {
             phone =  NewReserve[indexPath.row].PhoneNumber
             from = NewReserve[indexPath.row].From
             to = NewReserve[indexPath.row].To
-           // dateandtime = NewReserve[indexPath.row].DateAndTime1
+            datetime = NewReserve[indexPath.row].DateAndTime1
             tableView.reloadData()
             print(NewReserve[indexPath.row].Name)
             
@@ -126,19 +129,7 @@ class TableView: UITableViewController, PassDataBack {
                     let edit = segue.destination as! Edit
                     edit.delegate = self
                     edit.dataPass = selectedData
-                    
-//                    edit.dataPass1 = email
-//                    edit.dataPass2 = phone
-//                    edit.dataPass3 = from
-                    //edit.NameE = name
-//                    edit.EmailE = email
-//                    edit.PhonenumberE = phone
-//                    edit.FromE = from
-//                    edit.ToE = to
-                  //  edit.dataPass = to
-                    
-
-                }
+}
                else if segue.identifier == "GoBackToTable"{
                     let table = segue.destination as! TableView
                    table.name = name
@@ -146,6 +137,7 @@ class TableView: UITableViewController, PassDataBack {
                    table.phone = phone
                    table.from = from
                    table.to = to
+              //     table.datetime = 
                    
                     
                 }
@@ -156,7 +148,7 @@ class TableView: UITableViewController, PassDataBack {
                     details.PhonenumberD = phone
                     details.FromD = from
                     details.ToD = to
-                  // details.DateAndTime = Data
+                    details.date = datetime
                 
                 }}
     
