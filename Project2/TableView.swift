@@ -11,7 +11,7 @@ import CloudKit
 class TableView: UITableViewController {
     var NewReserve = [Reservation]()
    // var selectedItem: Reservation!
-//var selectedAccount : Reservation!
+var selectedAccount : Reservation!
     var name: String = ""
     var email: String = ""
     var phone: String = ""
@@ -51,8 +51,9 @@ class TableView: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "XIdentifier", for: indexPath)
             cell.textLabel?.text = NewReserve[indexPath.row].Name
            
-
+            
             return cell
+           
         }
         override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
           //  let   NewReserve = selectedItem[indexPath.row]
@@ -62,11 +63,11 @@ class TableView: UITableViewController {
             from = NewReserve[indexPath.row].From
             to = NewReserve[indexPath.row].To
             dateandtime = NewReserve[indexPath.row].DateAndTime1
-            
+            tableView.reloadData()
             print(NewReserve[indexPath.row].Name)
             
             performSegue(withIdentifier: "goBackToDetails", sender: self)
-            self.tableView.reloadData()
+           
         }
     
     
@@ -79,6 +80,8 @@ class TableView: UITableViewController {
 //            tableView.beginUpdates()
 //        }
 //    }
+    
+    
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = UIContextualAction (style: .destructive, title: "delete") { (action, view, completionHandler) in
             self.NewReserve.remove(at: indexPath.row)
@@ -97,17 +100,27 @@ class TableView: UITableViewController {
                 if segue.identifier == "goBackToDetails"{
                     let edit = segue.destination as! Edit
                  //   edit.NewReserveE = NewReserve
+                //    edit.selectedAccount = selectedAccount
                     edit.NameE = name
                     edit.EmailE = email
                     edit.PhonenumberE = phone
                     edit.FromE = from
                     edit.ToE = to
+                    tableView.reloadData()
                 }
+               else if segue.identifier == "GoBackToTable"{
+                    let table = segue.destination as! TableView
+                    table.selectedAccount = selectedAccount
+                    
+                    
+                   // table.NewReserve = NewReserveE
+                    
+                }}
                 
             }
             
             
-    }
+    
             
     
     

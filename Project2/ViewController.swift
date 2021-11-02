@@ -18,6 +18,7 @@ struct Reservation {
 class ViewController: UIViewController {
 
     var NewReservation = [Reservation]()
+    var s: Reservation!
     @IBOutlet weak var NameText: UITextField!
     @IBOutlet weak var EmailText: UITextField!
     @IBOutlet weak var PhoneText: UITextField!

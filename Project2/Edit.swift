@@ -6,10 +6,15 @@
 //
 
 import UIKit
-
+protocol PassDataBack {
+    
+    func updateRow(updateName: String, updateEmail: String, updatePhone: String, updateFrom: String,updateTo: String)
+    
+}
 class Edit: UIViewController {
 var NewReserveE = [Reservation]()
-   // var selectedAccount : Reservation!
+    var dataPass: String?
+    var delegate: PassDataBack!
     var NameE: String = ""
     var EmailE: String = ""
     var PhonenumberE: String = ""
@@ -31,7 +36,7 @@ var NewReserveE = [Reservation]()
 //        ToLabel.text = ToE    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        NameLabel.text = NameE
+        NameLabel.text = dataPass!
         EmaiLabel.text = EmailE
         PhoneLabel.text = PhonenumberE
         FromLabel.text = FromE
@@ -43,17 +48,18 @@ var NewReserveE = [Reservation]()
 //               NewReserveE.append(Reservation(
 //                Name: NameLabel.text!, Email: EmaiLabel.text!, PhoneNumber: PhoneLabel.text!, From: FromLabel.text!, To: ToLabel.text!
 //              ))
-                
-     //   selectedAccount.Name = NameLabel.text!
-        NameE = NameLabel.text!
+      //  selectedAccount.Name = NameLabel.text!
+        
+        let newDate = NameLabel.text!
+        
+        delegate.updateRow(updateName: newDate, updateEmail: "", updatePhone: "", updateFrom: "", updateTo: "")
+        dismiss(animated: true, completion: nil)
         print(NameE,EmailE,PhonenumberE)
         navigationController?.popViewController(animated: true)
 //        for i in 0..<NewReserveE.count  {
 //                   NewReserveE[i].Name = NameE
 //                      NewReserveE[i].Email = EmailE
-//
-        let delegateA = UIApplication.shared.delegate as! AppDelegate
-    //    let context = delegateA.obje
+        
 //
 //        }
       //  performSegue(withIdentifier: "GoBackToTable", sender: self)
@@ -66,15 +72,15 @@ var NewReserveE = [Reservation]()
 override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "GoBackToTable"{
         let table = segue.destination as! TableView
-        table.name = NameE
+        table.NewReserve = NewReserveE
         
         
        // table.NewReserve = NewReserveE
         
-    }
+    }}
     // navigationController?.popViewController(animated: true)
 }
     
 
-}
+
 
