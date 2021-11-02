@@ -18,15 +18,12 @@ struct Reservation {
 class ViewController: UIViewController {
 
     var NewReservation = [Reservation]()
-    var s: Reservation!
     @IBOutlet weak var NameText: UITextField!
     @IBOutlet weak var EmailText: UITextField!
     @IBOutlet weak var PhoneText: UITextField!
     @IBOutlet weak var FromText: UITextField!
     @IBOutlet weak var ToText: UITextField!
-   
     @IBOutlet weak var viewR: UIView!
-    
     @IBOutlet weak var DateAndTime: UIDatePicker!
     
     override func viewDidLoad() {
@@ -37,7 +34,9 @@ class ViewController: UIViewController {
     @IBAction func NewReservation(_ sender: Any)
     {
         NewReservation.append(Reservation(
-            Name: NameText.text!, Email: EmailText.text!, PhoneNumber: PhoneText.text!, From: FromText.text!, To: ToText.text!,
+            Name: NameText.text!, Email: EmailText.text!, PhoneNumber: PhoneText.text!, From:
+                FromText.text!, To: ToText.text!,
+            
             DateAndTime1: DateAndTime.date
             
         ))

@@ -1,23 +1,38 @@
-//
-//  TableView.swift
-//  Project2
-//
-//  Created by Roaa aljohani on 25/03/1443 AH.
-//
+
 
 import UIKit
 import CloudKit
 
-class TableView: UITableViewController {
+class TableView: UITableViewController, PassDataBack {
+    var selectedData : Reservation!
+    var selectedRowNum: Int = 0
+    func updateRow(updateName: String, updateEmail: String, updatePhone: String, updateFrom: String, updateTo: String) {
+        
+        NewReserve[selectedRowNum].Name = updateName
+        NewReserve[selectedRowNum].Email = updateEmail
+        NewReserve[selectedRowNum].PhoneNumber = updatePhone
+        NewReserve[selectedRowNum].From = updateFrom
+        NewReserve[selectedRowNum].To = updateTo
+        tableView.reloadData()
+    }
+//        for i in 0..<NewReserve.count{
+//        NewReserve[i].Name = updateName
+//        NewReserve[i].Email = updateEmail
+//        NewReserve[i].PhoneNumber = updatePhone
+//        NewReserve[i].From = updateFrom
+//        NewReserve[i].To = updateTo}
+//
+//        tableView.reloadData()}
+    
     var NewReserve = [Reservation]()
-   // var selectedItem: Reservation!
-var selectedAccount : Reservation!
+
     var name: String = ""
     var email: String = ""
     var phone: String = ""
     var from: String = ""
     var to: String = ""
-   var dateandtime = Date()
+   // var datetime = Date()
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
                
@@ -62,11 +77,11 @@ var selectedAccount : Reservation!
             phone =  NewReserve[indexPath.row].PhoneNumber
             from = NewReserve[indexPath.row].From
             to = NewReserve[indexPath.row].To
-            dateandtime = NewReserve[indexPath.row].DateAndTime1
+           // dateandtime = NewReserve[indexPath.row].DateAndTime1
             tableView.reloadData()
             print(NewReserve[indexPath.row].Name)
             
-            performSegue(withIdentifier: "goBackToDetails", sender: self)
+            performSegue(withIdentifier: "ShowDetails", sender: self)
            
         }
     
@@ -91,31 +106,60 @@ var selectedAccount : Reservation!
             
             completionHandler(true)
         }
-        return UISwipeActionsConfiguration(actions: [delete])
+        let edit = UIContextualAction(style: .destructive, title: "Edit"){(action, view, completionHandler) in
+            self.selectedData =  self.NewReserve[indexPath.row]
+           self.selectedRowNum = indexPath.row
+            self.performSegue(withIdentifier: "mySegue", sender: self)
+            completionHandler(true)
+           
+        }
+        edit.backgroundColor = .blue
+       // edit.image = UIImage(systemName: "edit")
+        return UISwipeActionsConfiguration(actions: [delete, edit])
+       
     }
     
     
     
             override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-                if segue.identifier == "goBackToDetails"{
+                if segue.identifier == "mySegue"{
                     let edit = segue.destination as! Edit
-                 //   edit.NewReserveE = NewReserve
-                //    edit.selectedAccount = selectedAccount
-                    edit.NameE = name
-                    edit.EmailE = email
-                    edit.PhonenumberE = phone
-                    edit.FromE = from
-                    edit.ToE = to
-                    tableView.reloadData()
+                    edit.delegate = self
+                    edit.dataPass = selectedData
+                    
+//                    edit.dataPass1 = email
+//                    edit.dataPass2 = phone
+//                    edit.dataPass3 = from
+                    //edit.NameE = name
+//                    edit.EmailE = email
+//                    edit.PhonenumberE = phone
+//                    edit.FromE = from
+//                    edit.ToE = to
+                  //  edit.dataPass = to
+                    
+
                 }
                else if segue.identifier == "GoBackToTable"{
                     let table = segue.destination as! TableView
-                    table.selectedAccount = selectedAccount
+                   table.name = name
+                   table.email = email
+                   table.phone = phone
+                   table.from = from
+                   table.to = to
+                   
                     
-                    
-                   // table.NewReserve = NewReserveE
-                    
+                }
+                else if segue.identifier == "ShowDetails"{
+                            let details = segue.destination as! Details
+                    details.NameD = name
+                    details.EmailD = email
+                    details.PhonenumberD = phone
+                    details.FromD = from
+                    details.ToD = to
+                  // details.DateAndTime = Data
+                
                 }}
+    
                 
             }
             

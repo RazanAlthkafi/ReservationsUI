@@ -13,7 +13,7 @@ protocol PassDataBack {
 }
 class Edit: UIViewController {
 var NewReserveE = [Reservation]()
-    var dataPass: String?
+  var dataPass:Reservation?
     var delegate: PassDataBack!
     var NameE: String = ""
     var EmailE: String = ""
@@ -28,31 +28,26 @@ var NewReserveE = [Reservation]()
     @IBOutlet weak var ToLabel: UITextField!
     
     
-//    override func viewWillDisappear(_ animated: Bool) {
-//        NameLabel.text = NameE
-//        EmaiLabel.text = EmailE
-//        PhoneLabel.text = PhonenumberE
-//        FromLabel.text = FromE
-//        ToLabel.text = ToE    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        NameLabel.text = dataPass!
-        EmaiLabel.text = EmailE
-        PhoneLabel.text = PhonenumberE
-        FromLabel.text = FromE
-        ToLabel.text = ToE
+//        NameLabel.text = dataPass
+        EmaiLabel.text = dataPass?.Email
+        PhoneLabel.text = dataPass?.PhoneNumber
+        FromLabel.text = dataPass?.From
+        ToLabel.text = dataPass?.To
+        NameLabel.text = dataPass?.Name
+        
       
     }
     
     @IBAction func updateD(_ sender: Any) {
-//               NewReserveE.append(Reservation(
-//                Name: NameLabel.text!, Email: EmaiLabel.text!, PhoneNumber: PhoneLabel.text!, From: FromLabel.text!, To: ToLabel.text!
-//              ))
-      //  selectedAccount.Name = NameLabel.text!
-        
         let newDate = NameLabel.text!
-        
-        delegate.updateRow(updateName: newDate, updateEmail: "", updatePhone: "", updateFrom: "", updateTo: "")
+        let newDate1 = EmaiLabel.text!
+        let newDate2 = PhoneLabel.text!
+        let newDate3 = FromLabel.text!
+        let newDate4 = ToLabel.text!
+        delegate.updateRow(updateName: newDate, updateEmail: newDate1, updatePhone: newDate2, updateFrom: newDate3, updateTo: newDate4)
         dismiss(animated: true, completion: nil)
         print(NameE,EmailE,PhonenumberE)
         navigationController?.popViewController(animated: true)
@@ -69,15 +64,15 @@ var NewReserveE = [Reservation]()
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "GoBackToTable"{
-        let table = segue.destination as! TableView
-        table.NewReserve = NewReserveE
-        
-        
-       // table.NewReserve = NewReserveE
-        
-    }}
+//override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//    if segue.identifier == "GoBackToTable"{
+//        let table = segue.destination as! TableView
+//        table.NewReserve = NewReserveE
+//        
+//        
+//       // table.NewReserve = NewReserveE
+//        
+//    }}
     // navigationController?.popViewController(animated: true)
 }
     
