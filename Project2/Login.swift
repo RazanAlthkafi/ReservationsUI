@@ -33,16 +33,10 @@ class Login: UIViewController {
         }
         }
         
-    }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "GoToSearch"{
-//       let x = segue.destination as! SearchPage
-//
-//
-//
-//        }
+    
 
 
 
 
+    }

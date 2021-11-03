@@ -13,10 +13,12 @@ struct Reservation {
     var From: String
     var To: String
     var DateAndTime1 = Date()
-   
+    var index = 0
 }
-class ViewController: UIViewController {
 
+class ViewController: UIViewController {
+    var filteredData : String = ""
+    var index = 0
     var NewReservation = [Reservation]()
     @IBOutlet weak var NameText: UITextField!
     @IBOutlet weak var EmailText: UITextField!
@@ -26,11 +28,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var viewR: UIView!
     @IBOutlet weak var DateAndTime: UIDatePicker!
     
-  
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewR.layer.cornerRadius = 30
+     print(NewReservation)
+       viewR.layer.cornerRadius = 30
         
         let NameU = UserDefaults.standard.string(forKey: "name")
         NameText.text = NameU
@@ -42,7 +44,7 @@ class ViewController: UIViewController {
         FromText.text = From
         let To = UserDefaults.standard.string(forKey: "to")
         ToText.text = To
-        
+
         
     
     }
@@ -67,18 +69,26 @@ class ViewController: UIViewController {
         print(NewReservation)
       
     }
+ 
+
+        
     
-    @IBAction func Admin(_ sender: Any) {
-       
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let table1 = segue.destination as! TableView
-        table1.NewReserve = NewReservation
+        if let table1 = segue.destination as? TableView {
+            table1.NewReserve = NewReservation}
         
-      
+        else if segue.identifier == "ShowResult"{
+           let table = segue.destination as! TableView
+            table.name = NewReservation[index].Name
+            print(NewReservation)
+                table.tableView.reloadData()
+               
+        }
         
+   
+
     }
     
     

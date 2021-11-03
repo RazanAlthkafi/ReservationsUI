@@ -3,28 +3,25 @@
 import UIKit
 import CloudKit
 
-class TableView: UITableViewController, PassDataBack{
+class TableView: UITableViewController, PassDataBack, UISearchBarDelegate {
+    @IBOutlet weak var SearchBar: UISearchBar!
     
-    var selectedData : Reservation!
-    var selectedRowNum: Int = 0
+  
+    var SearchFilter = [Reservation]()
+    var NewDate1 : Reservation!
+    var RowNum: Int = 0
+    
     func updateRow(updateName: String, updateEmail: String, updatePhone: String, updateFrom: String, updateTo: String, updateDate: Date) {
         
-        NewReserve[selectedRowNum].Name = updateName
-        NewReserve[selectedRowNum].Email = updateEmail
-        NewReserve[selectedRowNum].PhoneNumber = updatePhone
-        NewReserve[selectedRowNum].From = updateFrom
-        NewReserve[selectedRowNum].To = updateTo
-        NewReserve[selectedRowNum].DateAndTime1 = updateDate
+        NewReserve[RowNum].Name = updateName
+        NewReserve[RowNum].Email = updateEmail
+        NewReserve[RowNum].PhoneNumber = updatePhone
+        NewReserve[RowNum].From = updateFrom
+        NewReserve[RowNum].To = updateTo
+        NewReserve[RowNum].DateAndTime1 = updateDate
         tableView.reloadData()
     }
-//        for i in 0..<NewReserve.count{
-//        NewReserve[i].Name = updateName
-//        NewReserve[i].Email = updateEmail
-//        NewReserve[i].PhoneNumber = updatePhone
-//        NewReserve[i].From = updateFrom
-//        NewReserve[i].To = updateTo}
-//
-//        tableView.reloadData()}
+
     
     var NewReserve = [Reservation]()
 
@@ -38,37 +35,29 @@ class TableView: UITableViewController, PassDataBack{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
                
-
+        SearchBar.delegate = self
+        SearchFilter = NewReserve
                tableView.reloadData()
+     
     }
         override func viewDidLoad() {
             super.viewDidLoad()
+
             NewReserve.append(Reservation(
-                Name: "Razan", Email: "razan@", PhoneNumber: "12345", From:
-                    "from", To: "to",
+                Name: "Razan", Email: "razan@gmail.com", PhoneNumber:"0508318221", From:
+                   " med", To: "jed",
                 
                 DateAndTime1: Date()
                 
             ))
-//            NewReserve = ((UserDefaults.standard.array(forKey: "reservaion") as? [Reservation])!
-//                   tableView.reloadData()
-//            if let defaultsArray = UserDefaults.standard.object(forKey: "people") as? [Reservation] {
-//                    for dict in defaultsArray {
-//                        // Make sure dict contains all the value
-//                         let first = NewReserve[selectedRowNum]
-//                        let last = NewReserve[selectedRowNum]
-//                        let age = NewReserve[selectedRowNum]
-//                        NewReserve.append(Reservation(Name: name, Email: email, PhoneNumber: phone, From: from, To: to))
-//                    }
-//                } else {
-//                    // Nothing stored in defaults, or wrong format - people will remain empty
-//                }
-            }
-
-   
-           
-        
-        
+            NewReserve.append(Reservation(
+                Name: "Ahmad", Email: "ahmad@gmail.com", PhoneNumber:"0508318221", From:
+                   " med", To: "jed",
+                
+                DateAndTime1: Date()
+                
+            ))
+        }
 
         // MARK: - Table view data source
 
@@ -79,21 +68,20 @@ class TableView: UITableViewController, PassDataBack{
 
         override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             // #warning Incomplete implementation, return the number of rows
-            return NewReserve.count
+            return SearchFilter.count
         }
 
         
         override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-             let cell = tableView.dequeueReusableCell(withIdentifier: "XIdentifier", for: indexPath)
-                cell.textLabel?.text = NewReserve[indexPath.row].Name
-            
-//              let person = NewReserve[indexPath.row]
-          //   cell.textLabel?.text = "\(person.Name) \(person.Email), \(person.PhoneNumber)"
+            let cell = tableView.dequeueReusableCell(withIdentifier: "XIdentifier", for: indexPath)
+                cell.textLabel?.text = SearchFilter[indexPath.row].Name
+        
             return cell
             
            
         }
         override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+          //  let   NewReserve = selectedItem[indexPath.row]
             name = NewReserve[indexPath.row].Name
             email = NewReserve[indexPath.row].Email
             phone =  NewReserve[indexPath.row].PhoneNumber
@@ -107,14 +95,11 @@ class TableView: UITableViewController, PassDataBack{
            
         }
     
-    
-    
 
     
-    
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let delete = UIContextualAction (style: .destructive, title: "delete") { (action, view, completionHandler) in
-            self.NewReserve.remove(at: indexPath.row)
+        let delete = UIContextualAction (style: .destructive, title: "delete") { [self] (action, view, completionHandler) in
+            self.SearchFilter.remove(at: indexPath.row)
             tableView.beginUpdates()
             tableView.deleteRows(at: [indexPath], with: .automatic)
             tableView.endUpdates()
@@ -122,25 +107,36 @@ class TableView: UITableViewController, PassDataBack{
             completionHandler(true)
         }
         let edit = UIContextualAction(style: .destructive, title: "Edit"){(action, view, completionHandler) in
-            self.selectedData =  self.NewReserve[indexPath.row]
-           self.selectedRowNum = indexPath.row
+            self.NewDate1 =  self.NewReserve[indexPath.row]
+           self.RowNum = indexPath.row
             self.performSegue(withIdentifier: "mySegue", sender: self)
             completionHandler(true)
            
         }
         edit.backgroundColor = .blue
-       // edit.image = UIImage(systemName: "edit")
         return UISwipeActionsConfiguration(actions: [delete, edit])
        
     }
-    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        SearchFilter = []
+        if searchText == ""{
+            SearchFilter = NewReserve
+        }
+        else{
+        for i in NewReserve{
+            if i.Name.contains(searchText) {
+                SearchFilter.append(i)
+            }
+        }}
+        self.tableView.reloadData()
+    }
     
     
             override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
                 if segue.identifier == "mySegue"{
                     let edit = segue.destination as! Edit
                     edit.delegate = self
-                    edit.dataPass = selectedData
+                    edit.dataPass = NewDate1
 }
                else if segue.identifier == "GoBackToTable"{
                     let table = segue.destination as! TableView
@@ -149,7 +145,7 @@ class TableView: UITableViewController, PassDataBack{
                    table.phone = phone
                    table.from = from
                    table.to = to
-              //     table.datetime = 
+
                    
                     
                 }
@@ -169,68 +165,4 @@ class TableView: UITableViewController, PassDataBack{
             
             
     
-            
     
-    
-
-        
- 
-        
-    
-  
-   
-    
-  
-        
-        // Override to support conditional editing of the table view.
-    
-//    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-//      //  let Reservations = NewReserve[indexPath.row]
-//        let edit = UITableViewRowAction(style: .default, title: "edit") { (Action, indexPath)  in
-//
-//        }
-//
-//        edit.backgroundColor = .blue
-//        return [edit]
-//    }
-
-
-   
-    
-
-        /*
-        // Override to support editing the table view.
-        override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-            if editingStyle == .delete {
-                // Delete the row from the data source
-                tableView.deleteRows(at: [indexPath], with: .fade)
-            } else if editingStyle == .insert {
-                // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-            }
-        }
-        */
-
-        /*
-        // Override to support rearranging the table view.
-        override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-        }
-        */
-
-        /*
-        // Override to support conditional rearranging of the table view.
-        override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-            // Return false if you do not want the item to be re-orderable.
-            return true
-        }
-        */
-
-        
-        // MARK: - Navigation
-
-        // In a storyboard-based application, you will often want to do a little preparation before navigation
-        
-
-
-
-

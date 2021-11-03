@@ -336,38 +336,37 @@
             </objects>
             <point key="canvasLocation" x="3244.9275362318845" y="805.58035714285711"/>
         </scene>
-        <!--Search Page-->
+        <!--View Controller-->
         <scene sceneID="hJ8-4j-52q">
             <objects>
-                <viewController id="Lwk-9x-mS6" customClass="SearchPage" customModule="Project2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Lwk-9x-mS6" customClass="ViewController" customModule="Project2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lFD-5i-237">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="98q-Ub-EH5">
-                                <rect key="frame" x="0.0" y="366" width="414" height="51"/>
+                                <rect key="frame" x="0.0" y="322" width="414" height="51"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Is-xG-dn5">
-                                <rect key="frame" x="20" y="478" width="374" height="31"/>
+                                <rect key="frame" x="20" y="434" width="374" height="31"/>
                                 <color key="backgroundColor" red="0.2470007108" green="0.40494612949999997" blue="0.5750802424" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="search">
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="PressSearch:" destination="Lwk-9x-mS6" eventType="touchUpInside" id="6Xo-UW-qKx"/>
-                                    <action selector="search:" destination="tpV-fJ-1v7" eventType="touchUpInside" id="DZC-RQ-P2o"/>
+                                    <action selector="PressSearch:" destination="Lwk-9x-mS6" eventType="touchUpInside" id="M3Y-Qh-fds"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0kW-3P-5fp">
-                                <rect key="frame" x="20" y="560" width="374" height="29"/>
+                                <rect key="frame" x="20" y="516" width="374" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Searching..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CbF-MO-3II">
-                                <rect key="frame" x="20" y="215.5" width="374" height="33.5"/>
+                                <rect key="frame" x="20" y="171.5" width="374" height="33.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -392,15 +391,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="eZA-Lk-a0c"/>
                     <connections>
-                        <outlet property="EmptySearch" destination="0kW-3P-5fp" id="mKL-Md-yUv"/>
-                        <outlet property="SearchT" destination="98q-Ub-EH5" id="pyT-P5-Vv1"/>
-                        <segue destination="DK8-BE-RCm" kind="show" identifier="ShowResult" id="CsZ-Pm-jHz"/>
+                        <outlet property="EmptyLabel" destination="0kW-3P-5fp" id="6PY-hM-uAO"/>
+                        <outlet property="SearchBar" destination="98q-Ub-EH5" id="XL6-hm-Dcb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2MZ-Dy-5lo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="tpV-fJ-1v7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="796" y="1546"/>
+            <point key="canvasLocation" x="5568" y="858"/>
         </scene>
         <!--Login-->
         <scene sceneID="nEv-NZ-7bR">
@@ -480,13 +477,13 @@
                         <outlet property="LabelText" destination="kCe-KE-S7M" id="liU-cy-2bx"/>
                         <outlet property="LoginText" destination="m1Q-L2-Ids" id="jys-8H-TyP"/>
                         <outlet property="PasswordText" destination="FAA-Rg-hc0" id="fnJ-RO-eBG"/>
-                        <segue destination="Lwk-9x-mS6" kind="show" identifier="GoToSearch" id="B5s-3J-X16"/>
+                        <segue destination="DK8-BE-RCm" kind="show" identifier="GoToSearch" id="f0v-Pa-6YN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oJK-1A-9fW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="q14-7q-aRL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1502.8985507246377" y="805.58035714285711"/>
+            <point key="canvasLocation" x="1503" y="858"/>
         </scene>
         <!--Details-->
         <scene sceneID="NrW-Sd-4IK">
@@ -520,10 +517,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epf-U3-WGq">
-                                <rect key="frame" x="50" y="306" width="42" height="21"/>
+                                <rect key="frame" x="50" y="306" width="60" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="92U-c2-JRi"/>
-                                    <constraint firstAttribute="width" constant="42" id="kNV-8l-tfx"/>
+                                    <constraint firstAttribute="width" constant="60" id="kNV-8l-tfx"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="systemBackgroundColor"/>
@@ -607,10 +604,10 @@
                                 </constraints>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W7u-8v-mPt">
-                                <rect key="frame" x="327" y="305" width="42" height="21"/>
+                                <rect key="frame" x="309" y="305" width="60" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="IaD-Wa-POC"/>
-                                    <constraint firstAttribute="width" constant="42" id="Ry1-bo-BiA"/>
+                                    <constraint firstAttribute="width" constant="60" id="Ry1-bo-BiA"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="secondarySystemGroupedBackgroundColor"/>
@@ -677,9 +674,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.19756992609999999" green="0.21276502" blue="0.24159114879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="sectionIndexBackgroundColor" red="0.19756992609999999" green="0.21276502" blue="0.24159114879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="5WQ-TL-1Qj">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="XIdentifier" id="ndn-vt-27B">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="88.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ndn-vt-27B" id="VDN-He-bIq">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -698,13 +700,14 @@
                     </tabBarItem>
                     <navigationItem key="navigationItem" id="avW-2G-2gL"/>
                     <connections>
+                        <outlet property="SearchBar" destination="5WQ-TL-1Qj" id="Bup-wk-YHq"/>
                         <segue destination="eXd-CB-fcG" kind="show" identifier="mySegue" id="NJB-57-d5f"/>
                         <segue destination="sw2-BE-JGR" kind="show" identifier="ShowDetails" id="mi2-ie-UzQ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QJE-PF-K0n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2509" y="1546"/>
+            <point key="canvasLocation" x="351" y="2306"/>
         </scene>
         <!--Item-->
         <scene sceneID="PI3-37-irc">
@@ -739,7 +742,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="G5Q-v0-fmk" kind="relationship" relationship="viewControllers" id="z2p-hI-z6q"/>
-                        <segue destination="DK8-BE-RCm" kind="relationship" relationship="viewControllers" id="eQc-rK-Mov"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XWP-c0-urn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -748,7 +750,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="CsZ-Pm-jHz"/>
+        <segue reference="f0v-Pa-6YN"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="WhatsApp Image 2021-11-02 at 10.55.21 PM" width="750" height="1333"/>

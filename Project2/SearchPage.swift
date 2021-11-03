@@ -8,8 +8,15 @@
 import UIKit
 import CoreData
 
+protocol Filter {
+    func FilterTableView(name: String)
+}
+
 class SearchPage: UIViewController, UISearchBarDelegate {
     var filteredData = [Reservation]()
+    var dataPass:Reservation!
+    var delegate: Filter!
+    var selectedName : String = ""
     var Search =  [Reservation] ()
     var index : Int = 0
     var nameS: String = ""
@@ -25,31 +32,28 @@ class SearchPage: UIViewController, UISearchBarDelegate {
 
     @IBOutlet weak var SearchT: UISearchBar!
     override func viewDidLoad() {
-       
+        SearchT.text = nameS
         EmptySearch.isHidden = true
-        
+        print(nameS)
+
+        print(nameS)
     }
     
-    @IBAction func PressSearch(_ sender: Any) {
-        if SearchT.text == "" {
-            EmptySearch.isHidden = false
-            EmptySearch.text = "enter text first "
-        
-            filteredData = Search
+
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowResult"{
+       let table = segue.destination as! TableView
+            table.tableView.reloadData()
+            if nameS == table.name{
+                print("hi")}
             
+          
+
         }
-        else{
-            EmptySearch.isHidden = true
-            self.filteredData = self.Search.filter{ $0.Name.contains(SearchT.text!) }
-            
-            print(filteredData)
-            performSegue(withIdentifier: "ShowResult", sender: self)
-                
-                 // TableView.reloadInputViews(self)
-              }
-    }
     
 
 }
 
 
+}
