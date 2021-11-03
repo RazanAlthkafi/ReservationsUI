@@ -7,10 +7,10 @@ is System for airline reservation
 - user can create new reservation 
 - user can delete the reservatoin
 - user can update the reservation
-- user can search by name in the reservation
+- user can search by name in the reservations
 - user can show the details of the reservation
 - admin can login by specific name and password
-- admin can show the reservation and search
+- admin can show all reservations and search by name
 
 # Favorite function 
  
