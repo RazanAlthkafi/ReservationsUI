@@ -26,6 +26,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var viewR: UIView!
     @IBOutlet weak var DateAndTime: UIDatePicker!
     
+  
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewR.layer.cornerRadius = 30
@@ -62,7 +64,15 @@ class ViewController: UIViewController {
         print(NewReservation)
       
     }
+    
+    @IBAction func loginAdmin(_ sender: Any) {
+        
+    }
+    
    
+    @IBAction func search(_ sender: Any) {
+        
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         let table1 = segue.destination as! TableView

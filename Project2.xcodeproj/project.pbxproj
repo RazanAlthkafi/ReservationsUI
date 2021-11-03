@@ -17,6 +17,8 @@
 		C328B25D272EB6EC00FB4772 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C328B25C272EB6EC00FB4772 /* TableView.swift */; };
 		C328B25F272EBF2A00FB4772 /* Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = C328B25E272EBF2A00FB4772 /* Details.swift */; };
 		C328B261272FD10300FB4772 /* Edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C328B260272FD10300FB4772 /* Edit.swift */; };
+		C328B2632732650500FB4772 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = C328B2622732650300FB4772 /* Login.swift */; };
+		C328B2652732682C00FB4772 /* SearchPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C328B2642732682C00FB4772 /* SearchPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		C328B25C272EB6EC00FB4772 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		C328B25E272EBF2A00FB4772 /* Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Details.swift; sourceTree = "<group>"; };
 		C328B260272FD10300FB4772 /* Edit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Edit.swift; sourceTree = "<group>"; };
+		C328B2622732650300FB4772 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		C328B2642732682C00FB4772 /* SearchPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,8 @@
 				C328B25C272EB6EC00FB4772 /* TableView.swift */,
 				C328B25E272EBF2A00FB4772 /* Details.swift */,
 				C328B260272FD10300FB4772 /* Edit.swift */,
+				C328B2622732650300FB4772 /* Login.swift */,
+				C328B2642732682C00FB4772 /* SearchPage.swift */,
 			);
 			path = Project2;
 			sourceTree = "<group>";
@@ -157,6 +163,8 @@
 				C328B261272FD10300FB4772 /* Edit.swift in Sources */,
 				C31EA75A272D7442000ACB1F /* Project2.xcdatamodeld in Sources */,
 				C31EA752272D7442000ACB1F /* SceneDelegate.swift in Sources */,
+				C328B2632732650500FB4772 /* Login.swift in Sources */,
+				C328B2652732682C00FB4772 /* SearchPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
