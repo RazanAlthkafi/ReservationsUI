@@ -50,6 +50,7 @@
                                     <color key="baseBackgroundColor" red="0.2470007108" green="0.40494612949999997" blue="0.5750802424" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="Admin:" destination="Ac8-ka-Ckm" eventType="touchUpInside" id="Tsp-ra-pdM"/>
                                     <segue destination="jLG-TT-jES" kind="show" id="u9Q-5B-iv1"/>
                                 </connections>
                             </button>
@@ -73,11 +74,12 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="homekit" catalog="system" id="i3Q-x3-j5j">
-                        <color key="badgeColor" systemColor="systemBackgroundColor"/>
+                        <color key="badgeColor" red="0.074824104690000004" green="0.14858265909999999" blue="0.82505892719999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" id="9HT-08-aYr"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SgC-p3-eWF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Ac8-ka-Ckm" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2360.8695652173915" y="805.58035714285711"/>
         </scene>
@@ -356,24 +358,43 @@
                                 <connections>
                                     <action selector="PressSearch:" destination="Lwk-9x-mS6" eventType="touchUpInside" id="6Xo-UW-qKx"/>
                                     <action selector="search:" destination="tpV-fJ-1v7" eventType="touchUpInside" id="DZC-RQ-P2o"/>
-                                    <segue destination="DK8-BE-RCm" kind="show" identifier="ShowResult" id="DIy-CX-nku"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0kW-3P-5fp">
+                                <rect key="frame" x="20" y="560" width="374" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Searching..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CbF-MO-3II">
+                                <rect key="frame" x="20" y="215.5" width="374" height="33.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gZW-gf-3nU"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="9Is-xG-dn5" firstAttribute="leading" secondItem="gZW-gf-3nU" secondAttribute="leading" constant="20" id="1SN-sv-8D4"/>
+                            <constraint firstItem="gZW-gf-3nU" firstAttribute="trailing" secondItem="0kW-3P-5fp" secondAttribute="trailing" constant="20" id="9sP-dd-bGk"/>
                             <constraint firstItem="98q-Ub-EH5" firstAttribute="leading" secondItem="gZW-gf-3nU" secondAttribute="leading" id="CLV-8f-dvP"/>
                             <constraint firstItem="98q-Ub-EH5" firstAttribute="top" secondItem="gZW-gf-3nU" secondAttribute="top" constant="278" id="KzT-e8-0LB"/>
+                            <constraint firstItem="0kW-3P-5fp" firstAttribute="top" secondItem="9Is-xG-dn5" secondAttribute="bottom" constant="51" id="Lqn-kt-v5y"/>
                             <constraint firstItem="gZW-gf-3nU" firstAttribute="trailing" secondItem="98q-Ub-EH5" secondAttribute="trailing" id="Ze5-vW-P8N"/>
+                            <constraint firstItem="gZW-gf-3nU" firstAttribute="trailing" secondItem="CbF-MO-3II" secondAttribute="trailing" constant="20" id="ccL-76-Kax"/>
+                            <constraint firstItem="CbF-MO-3II" firstAttribute="leading" secondItem="gZW-gf-3nU" secondAttribute="leading" constant="20" id="dUX-9o-132"/>
+                            <constraint firstItem="98q-Ub-EH5" firstAttribute="top" secondItem="CbF-MO-3II" secondAttribute="bottom" constant="117" id="jMl-bs-S2S"/>
                             <constraint firstItem="gZW-gf-3nU" firstAttribute="trailing" secondItem="9Is-xG-dn5" secondAttribute="trailing" constant="20" id="kVG-H0-DGI"/>
                             <constraint firstItem="9Is-xG-dn5" firstAttribute="top" secondItem="98q-Ub-EH5" secondAttribute="bottom" constant="61" id="rVC-hr-G5M"/>
+                            <constraint firstItem="0kW-3P-5fp" firstAttribute="leading" secondItem="gZW-gf-3nU" secondAttribute="leading" constant="20" id="vNp-xz-fAs"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="eZA-Lk-a0c"/>
                     <connections>
+                        <outlet property="EmptySearch" destination="0kW-3P-5fp" id="mKL-Md-yUv"/>
                         <outlet property="SearchT" destination="98q-Ub-EH5" id="pyT-P5-Vv1"/>
+                        <segue destination="DK8-BE-RCm" kind="show" identifier="ShowResult" id="CsZ-Pm-jHz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2MZ-Dy-5lo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -647,7 +668,7 @@
             </objects>
             <point key="canvasLocation" x="2509" y="2306"/>
         </scene>
-        <!--Item-->
+        <!--reservation-->
         <scene sceneID="bKs-bq-H1y">
             <objects>
                 <tableViewController id="DK8-BE-RCm" customClass="TableView" customModule="Project2" customModuleProvider="target" sceneMemberID="viewController">
@@ -672,7 +693,9 @@
                             <outlet property="delegate" destination="DK8-BE-RCm" id="KSD-RV-Yu9"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="DK7-iC-uoy"/>
+                    <tabBarItem key="tabBarItem" title="reservation" image="ticket" catalog="system" id="DK7-iC-uoy">
+                        <color key="badgeColor" red="0.074824104690000004" green="0.14858265909999999" blue="0.82505892719999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" id="avW-2G-2gL"/>
                     <connections>
                         <segue destination="eXd-CB-fcG" kind="show" identifier="mySegue" id="NJB-57-d5f"/>
@@ -711,7 +734,8 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="c1t-IY-UMs">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="0.074824104690000004" green="0.14858265909999999" blue="0.82505892719999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="G5Q-v0-fmk" kind="relationship" relationship="viewControllers" id="z2p-hI-z6q"/>
@@ -724,11 +748,12 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="eQc-rK-Mov"/>
+        <segue reference="CsZ-Pm-jHz"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="WhatsApp Image 2021-11-02 at 10.55.21 PM" width="750" height="1333"/>
         <image name="homekit" catalog="system" width="128" height="106"/>
+        <image name="ticket" catalog="system" width="128" height="84"/>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

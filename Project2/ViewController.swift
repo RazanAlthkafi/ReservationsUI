@@ -42,6 +42,9 @@ class ViewController: UIViewController {
         FromText.text = From
         let To = UserDefaults.standard.string(forKey: "to")
         ToText.text = To
+        
+        
+    
     }
 
     @IBAction func NewReservation(_ sender: Any)
@@ -65,14 +68,10 @@ class ViewController: UIViewController {
       
     }
     
-    @IBAction func loginAdmin(_ sender: Any) {
-        
+    @IBAction func Admin(_ sender: Any) {
+       
     }
     
-   
-    @IBAction func search(_ sender: Any) {
-        
-    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         let table1 = segue.destination as! TableView

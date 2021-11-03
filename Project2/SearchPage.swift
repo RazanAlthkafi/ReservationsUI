@@ -8,51 +8,48 @@
 import UIKit
 import CoreData
 
-
 class SearchPage: UIViewController, UISearchBarDelegate {
     var filteredData = [Reservation]()
     var Search =  [Reservation] ()
     var index : Int = 0
-//    var nameS: String = ""
-//    var emailS: String = ""
-//    var phoneS: String = ""
-//    var fromS: String = ""
-//    var toS: String = ""
+    var nameS: String = ""
+    var emailS: String = ""
+    var phoneS: String = ""
+    var fromS: String = ""
+    var toS: String = ""
     var datetimeS = Date()
   
+    @IBOutlet weak var EmptySearch: UILabel!
     
     let SearchController = UISearchController()
 
     @IBOutlet weak var SearchT: UISearchBar!
     override func viewDidLoad() {
        
-
+        EmptySearch.isHidden = true
         
     }
     
     @IBAction func PressSearch(_ sender: Any) {
-    }
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if SearchT.text != ""{
-            
-            self.filteredData = self.Search.filter{ $0.Name.contains(searchText) }
-            
-            print(filteredData)
+        if SearchT.text == "" {
+            EmptySearch.isHidden = false
+            EmptySearch.text = "enter text first "
+        
+            filteredData = Search
             
         }
         else{
-            print("enter search first ")
-            filteredData = Search
-           // TableView.reloadInputViews(self)
-        }
-        performSegue(withIdentifier: "ShowResult", sender: self)
+            EmptySearch.isHidden = true
+            self.filteredData = self.Search.filter{ $0.Name.contains(SearchT.text!) }
+            
+            print(filteredData)
+            performSegue(withIdentifier: "ShowResult", sender: self)
+                
+                 // TableView.reloadInputViews(self)
+              }
     }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ShowResult"{
-            let saerch = segue.destination as! TableView
+    
 
 }
-}
 
-}
+

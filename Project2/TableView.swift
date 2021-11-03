@@ -3,7 +3,7 @@
 import UIKit
 import CloudKit
 
-class TableView: UITableViewController, PassDataBack {
+class TableView: UITableViewController, PassDataBack{
     
     var selectedData : Reservation!
     var selectedRowNum: Int = 0
@@ -43,15 +43,32 @@ class TableView: UITableViewController, PassDataBack {
     }
         override func viewDidLoad() {
             super.viewDidLoad()
+            NewReserve.append(Reservation(
+                Name: "Razan", Email: "razan@", PhoneNumber: "12345", From:
+                    "from", To: "to",
+                
+                DateAndTime1: Date()
+                
+            ))
+//            NewReserve = ((UserDefaults.standard.array(forKey: "reservaion") as? [Reservation])!
+//                   tableView.reloadData()
+//            if let defaultsArray = UserDefaults.standard.object(forKey: "people") as? [Reservation] {
+//                    for dict in defaultsArray {
+//                        // Make sure dict contains all the value
+//                         let first = NewReserve[selectedRowNum]
+//                        let last = NewReserve[selectedRowNum]
+//                        let age = NewReserve[selectedRowNum]
+//                        NewReserve.append(Reservation(Name: name, Email: email, PhoneNumber: phone, From: from, To: to))
+//                    }
+//                } else {
+//                    // Nothing stored in defaults, or wrong format - people will remain empty
+//                }
+            }
 
-            // Uncomment the following line to preserve selection between presentations
-            // self.clearsSelectionOnViewWillAppear = false
-
-            // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-            // self.navigationItem.rightBarButtonItem = self.editButtonItem
-            
-            print(NewReserve)
-        }
+   
+           
+        
+        
 
         // MARK: - Table view data source
 
@@ -67,15 +84,16 @@ class TableView: UITableViewController, PassDataBack {
 
         
         override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "XIdentifier", for: indexPath)
-            cell.textLabel?.text = NewReserve[indexPath.row].Name
-           
+             let cell = tableView.dequeueReusableCell(withIdentifier: "XIdentifier", for: indexPath)
+                cell.textLabel?.text = NewReserve[indexPath.row].Name
             
+//              let person = NewReserve[indexPath.row]
+          //   cell.textLabel?.text = "\(person.Name) \(person.Email), \(person.PhoneNumber)"
             return cell
+            
            
         }
         override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-          //  let   NewReserve = selectedItem[indexPath.row]
             name = NewReserve[indexPath.row].Name
             email = NewReserve[indexPath.row].Email
             phone =  NewReserve[indexPath.row].PhoneNumber
@@ -91,14 +109,7 @@ class TableView: UITableViewController, PassDataBack {
     
     
     
-//    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-//        return .delete
-//    }
-//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete{
-//            tableView.beginUpdates()
-//        }
-//    }
+
     
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
