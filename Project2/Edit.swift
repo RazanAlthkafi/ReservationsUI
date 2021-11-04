@@ -13,7 +13,6 @@ protocol PassDataBack {
 }
 class Edit: UIViewController {
 var NewReserveE = [Reservation]()
-    
     var dataPass:Reservation!
     var delegate: PassDataBack!
     var NameE: String = ""

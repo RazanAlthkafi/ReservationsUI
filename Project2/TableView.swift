@@ -51,7 +51,7 @@ class TableView: UITableViewController, PassDataBack, UISearchBarDelegate {
                 
             ))
             NewReserve.append(Reservation(
-                Name: "Ahmad", Email: "ahmad@gmail.com", PhoneNumber:"0508318221", From:
+                Name: "ahmad", Email: "ahmad@gmail.com", PhoneNumber:"0508318221", From:
                    " med", To: "jed",
                 
                 DateAndTime1: Date()
@@ -124,7 +124,7 @@ class TableView: UITableViewController, PassDataBack, UISearchBarDelegate {
         }
         else{
         for i in NewReserve{
-            if i.Name.contains(searchText) {
+            if i.Name.lowercased().contains(searchText.lowercased()) {
                 SearchFilter.append(i)
             }
         }}
