@@ -16,8 +16,8 @@ class Login: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         LabelText.isHidden = true
-       
-        
+      
+        PasswordText.isSecureTextEntry.toggle()
     }
     
     @IBAction func LoginAction(_ sender: Any) {
